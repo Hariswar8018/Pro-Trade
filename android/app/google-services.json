@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "392375080388",
+    "project_id": "chess-grinder-385615",
+    "storage_bucket": "chess-grinder-385615.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392375080388:android:b84165c36e4785f3f60091",
+        "android_client_info": {
+          "package_name": "com.starwish.pro_trade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392375080388-vh036la749f982j1lqlfgsff5pvvpna1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.starwish.pro_trade",
+            "certificate_hash": "a3226326da87596c5419e875cf5ad898dfdb3899"
+          }
+        },
+        {
+          "client_id": "392375080388-1omj2o1u7nkcg4c472k3nm8calgmq53f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe_6sRe5JnIFijfj3stOmx66pHGrQ061k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392375080388-1omj2o1u7nkcg4c472k3nm8calgmq53f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "392375080388-i0r5vrqr367cf332l4gbud3hjlhm4c4b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.starwish.proTrade"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
