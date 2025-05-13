@@ -16,7 +16,8 @@ import 'package:pro_trade/setting/profile.dart';
 
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  String affiliate;
+  Login({super.key,required this.affiliate});
 
   @override
   State<Login> createState() => _LoginState();
@@ -86,7 +87,9 @@ class _LoginState extends State<Login> {
                     final us=await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email.text, password: password.text);
                     UserModel user=UserModel(name: name.text,
                         email: email.text, position: "", no: 0, uid: us.user!.uid,
-                        pic: "", school: "", other1: "", other2: "");
+                        pic: "", school: "", other1: "", other2: "", balance: 0.0, rewards: 0.0,
+                        expectedRewards: 0.0, deposit: 0.0, withdrawal: 0.0, afflink: widget.affiliate, affn: 0, affearn:0.0, pendingamount: 0.0,
+                    );
                     await FirebaseFirestore.instance.collection("users").doc(us.user!.uid).set(user.toJson());
                     Navigator.push(
                         context, PageTransition(
@@ -176,7 +179,10 @@ class _LoginState extends State<Login> {
                     try{
                       UserModel user=UserModel(name: name.text,
                           email: emaill, position: "", no: 0, uid: uid,
-                          pic: "", school: "", other1: "", other2: "");
+                          pic: "", school: "", other1: "", other2: "", balance: 0.0, rewards: 0.0,
+                          expectedRewards: 0.0, deposit: 0.0, withdrawal: 0.0, afflink: widget.affiliate,
+                        affn: 0, affearn:0.0, pendingamount: 0.0,
+                      );
                       await FirebaseFirestore.instance.collection("users").doc(uid).set(user.toJson());
                       Navigator.push(
                           context, PageTransition(

@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAe_6sRe5JnIFijfj3stOmx66pHGrQ061k',
-    appId: '1:392375080388:android:b84165c36e4785f3f60091',
+    appId: '1:392375080388:android:51cdfc3d516af178f60091',
     messagingSenderId: '392375080388',
     projectId: 'chess-grinder-385615',
     storageBucket: 'chess-grinder-385615.firebasestorage.app',
@@ -63,6 +63,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '392375080388',
     projectId: 'chess-grinder-385615',
     storageBucket: 'chess-grinder-385615.firebasestorage.app',
+    androidClientId: '392375080388-vh036la749f982j1lqlfgsff5pvvpna1.apps.googleusercontent.com',
+    iosClientId: '392375080388-i0r5vrqr367cf332l4gbud3hjlhm4c4b.apps.googleusercontent.com',
     iosBundleId: 'com.starwish.proTrade',
   );
+
 }

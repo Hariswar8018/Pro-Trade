@@ -37,10 +37,12 @@ class _ProfileState extends State<Profile> {
   Future<void> gyi() async {
     name.text=widget.user.name;
     email.text=widget.user.email;
-    bio.text=widget.user.position;
-    userm.text=widget.user.school;
+    bio.text=widget.user.other2;
+    userm.text=widget.user.other1;
     email.text=widget.user.email;
     pic=widget.user.pic;
+    binanceid.text=widget.user.position;
+    ss=widget.user.school;
     setState((){
 
     });
@@ -55,7 +57,7 @@ class _ProfileState extends State<Profile> {
         iconTheme: IconThemeData(
             color: Colors.white
         ),
-        title: Text(widget.update?"Update your Profile":"Make your Profile",style: TextStyle(color: Colors.white),),
+        title: Text(widget.update?"Update your Profile":"Complete your Profile",style: TextStyle(color: Colors.white),),
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -63,39 +65,109 @@ class _ProfileState extends State<Profile> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 30,),
-            InkWell(
-              onTap: ()async{
-                try {
-                  Uint8List? _file = await pickImage(
-                      ImageSource.gallery);
-                  String photoUrl = await StorageMethods()
-                      .uploadImageToStorage('users', _file!, true);
-                  await FirebaseFirestore.instance
-                      .collection('users')
-                      .doc(widget.user.uid)
-                      .update({
-                    "pic": photoUrl,
-                  });
-                  Global.showMessage(context, "Uploaded",true);
-                }catch(e){
-                  Global.showMessage(context, "$e",false);
-                }
-              },
+            SizedBox(height: 15,),
+            Padding(
+              padding: const EdgeInsets.all(14.0),
               child: Center(
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(pic),
-                  radius: 65,
+                child: Container(
+                    width: w-20,
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: Global.blac,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        // specify the radius for the top-left corner
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                        // specify the radius for the top-right corner
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        f(w, 0),
+                        f(w, 1),
+                      ],
+                    )
                 ),
               ),
             ),
+
             SizedBox(height: 5,),
-            Center(child: Text("Click to Upload Picture",style: TextStyle(color: Colors.white,fontSize: 12),)),
-            SizedBox(height: 25,),
-            fg(name, "Your Name", "Ayusman",false,1),
-            fg(userm, "UserName", "Hariswar8018",false,1),
-            fg(email, "Your Email", em,true,1),
-            fg(bio, "Your Bio", "Ayusman",false,6),
+            review==0?Column(
+              children: [
+                SizedBox(height: 15,),
+                InkWell(
+                  onTap: ()async{
+                    try {
+                      Uint8List? _file = await pickImage(
+                          ImageSource.gallery);
+                      String photoUrl = await StorageMethods()
+                          .uploadImageToStorage('users', _file!, true);
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(widget.user.uid)
+                          .update({
+                        "pic": photoUrl,
+                      });
+                      Global.showMessage(context, "Uploaded",true);
+                    }catch(e){
+                      Global.showMessage(context, "$e",false);
+                    }
+                  },
+                  child: Center(
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(pic),
+                      radius: 65,
+                    ),
+                  ),
+                ),
+                Center(child: Text("Click to Upload Picture",style: TextStyle(color: Colors.white,fontSize: 12),)),
+                SizedBox(height: 25,),
+                fg(name, "Your Name", "Ayusman",false,1),
+                fg(userm, "UserName", "Hariswar8018",false,1),
+                fg(email, "Your Email", em,true,1),
+                fg(bio, "Your Bio", "Ayusman",false,6),
+              ],
+            ):Column(
+              children: [
+                SizedBox(height: 15,),
+                InkWell(
+                  onTap: ()async{
+                    try {
+                      Uint8List? _file = await pickImage(ImageSource.gallery);
+                      String photoUrl = await StorageMethods()
+                          .uploadImageToStorage('users', _file!, true);
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(widget.user.uid)
+                          .update({
+                        "school": photoUrl,
+                      });
+                      Global.showMessage(context, "Uploaded",true);
+                    }catch(e){
+                      Global.showMessage(context, "$e",false);
+                    }
+                  },
+                  child: Container(
+                    width: w-30,
+                    height: 300,
+                    decoration: BoxDecoration(
+                      border:Border.all(
+                        color: Colors.white,
+                      ),
+                      borderRadius: BorderRadius.circular(3),
+                      image: DecorationImage(image: NetworkImage(ss),fit: BoxFit.contain)
+                    ),
+                    child: Center(child: Text(ss.isEmpty?"Upload you Scanner by Pressing here":"",style: TextStyle(color: Colors.white),)),
+                  )
+                ),
+                Center(child: Text("Click to Upload Screenshot",style: TextStyle(color: Colors.white,fontSize: 12),)),
+                SizedBox(height: 25,),
+                fg(binanceid, "Your Binance ID", "",false,1),
+              ],
+            )
           ],
         ),
       ),
@@ -106,8 +178,9 @@ class _ProfileState extends State<Profile> {
               await FirebaseFirestore.instance.collection("users")
                   .doc(FirebaseAuth.instance.currentUser!.uid).update({
                 "name":name.text,
-                "position":bio.text,
-                "school":userm.text
+                "other1":bio.text,
+                "other2":userm.text,
+                "position":binanceid.text,
               });
               if(widget.update){
                 Navigator.pop(context);
@@ -143,6 +216,48 @@ class _ProfileState extends State<Profile> {
       ],
     );
   }
+  String ss='';
+  TextEditingController binanceid=TextEditingController();
+  int review=0;
+  Widget f(double w, int yes)=>InkWell(
+    onTap: (){
+      setState(() {
+        review=yes;
+      });
+      print(review);
+    },
+    child: Container(
+      width: w/2-30,
+      height: 40,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: yes==review?Colors.yellowAccent:Global.blac,
+      ),
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            yes==0?Icon(Icons.person,size: 25,color: Colors.black,):Icon(Icons.account_balance,size: 25,color: Colors.black,),
+            SizedBox(width: 3,),
+            Text(yiop(yes),
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color:yes==review? Colors.black:Colors.white)),
+          ],
+        ),
+      ),
+    ),
+  );
+  String yiop(int y){
+    if(y==0){
+      return "Profile";
+    }else if(y==1){
+      return "Payments";
+    }else {
+      return "Invites";
+    }
+  }
   final userProvider = AsyncNotifierProvider<UserController, UserModel?>(() {
     return UserController();
   });
@@ -166,9 +281,11 @@ class _ProfileState extends State<Profile> {
       readOnly: a,
       maxLines: i,
       keyboardType: TextInputType.text,
+      maxLength: str=="UserName"?10:700,
       style: TextStyle(color: Colors.white), // ✅ Makes typed text white
       decoration: InputDecoration(
         labelText: str,
+        counterText: "",
         labelStyle: TextStyle(color: Colors.white), // ✅ Makes label text white
         hintText: str2,
         hintStyle: TextStyle(color: Colors.white70), // ✅ Makes hint text white with slight opacity

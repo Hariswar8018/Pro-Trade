@@ -1,8 +1,13 @@
+
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pro_trade/admin/navigation.dart';
 import 'package:pro_trade/home/home.dart';
+import 'package:pro_trade/model/usdt.dart';
 import 'package:pro_trade/model/usermodel.dart';
+import 'package:pro_trade/pay/update.dart';
 import 'package:pro_trade/provider/declare.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,33 +21,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   void initState(){
-    fy();
+    Update().updateUSDT();
   }
-  Future<void> fy() async {
-    final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
-    bool away= await asyncPrefs.getBool('night')??false;
-    if(gh!=null){
-      setState(() {
-
-      });
-    }
-  }
-
+  final userControllerProvider = AsyncNotifierProvider<UserController, UserModel?>(() => UserController());
   String gh=FirebaseAuth.instance.currentUser!.email!;
   int _selectedIndex = 0;
 
-  List<Widget> tabItems = [
-    Center(child: Text("0")),
-    Center(child: Text("1")),
-    Center(child: Text("2")),
-    Center(child: Text("3")),
-    Center(child: Text("4"))
-  ];
-
-  Widget diu(){
-    return Text("");
-  }
   Future<bool> _onWillPop(BuildContext context) async {
     bool exitApp = await showDialog(
       context: context,
@@ -73,20 +59,36 @@ class _MyHomePageState extends State<MyHomePage> {
     await ref.read(userProvider.notifier).refreshUser();
   }
 
+  bool admin= FirebaseAuth.instance.currentUser!.email=="mohansir.ik70@gmail.com"||FirebaseAuth.instance.currentUser!.email=="ayush@gmail.com";
   @override
   Widget build(BuildContext context) {
     double w=MediaQuery.of(context).size.width;
     return WillPopScope(
         onWillPop: () => _onWillPop(context),
-        child: sd(false));
+        child: sd(admin));
   }
 
   Widget sd(bool b){
+    if(b){
+      return AdminNavigation();
+    }
     return Scaffold(
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
-      body:Home(),
+      body: Consumer(
+        builder: (context, ref, child) {
+          final userState = ref.watch(userControllerProvider);
+          return userState.when(
+            data: (user) => user == null
+                ? const Center(child: Text('No user data available'))
+                : Home(user: user,),
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (err, stack) => Center(child: Text('Error: $err')),
+          );
+        },
+      ),
     );
   }
   int _currentIndex = 0;
 }
+final userControllerProvider = AsyncNotifierProvider<UserController, UserModel?>(() => UserController());

@@ -48,6 +48,42 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392375080388:android:51cdfc3d516af178f60091",
+        "android_client_info": {
+          "package_name": "com.starwish.protrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392375080388-1omj2o1u7nkcg4c472k3nm8calgmq53f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe_6sRe5JnIFijfj3stOmx66pHGrQ061k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392375080388-1omj2o1u7nkcg4c472k3nm8calgmq53f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "392375080388-i0r5vrqr367cf332l4gbud3hjlhm4c4b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.starwish.proTrade"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
