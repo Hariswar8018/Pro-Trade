@@ -292,7 +292,6 @@ class _LoginState extends State<Login> {
     ),
   );
 
-
   TextEditingController name=TextEditingController();
   TextEditingController email=TextEditingController();
   TextEditingController verify=TextEditingController();

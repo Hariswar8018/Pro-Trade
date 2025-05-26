@@ -51,7 +51,7 @@ class _ReferralScreenState extends State<ReferralScreen> {
                   child: Text(
                     'https://evergreenwealth.in/${FirebaseAuth.instance.currentUser!.uid}',
                     style: TextStyle(
-                      color: Colors.limeAccent,
+                      color: Color(0xffA0D8F1),
                       fontSize: 16,
                     ),
                   ),
@@ -76,7 +76,7 @@ class _ReferralScreenState extends State<ReferralScreen> {
                   child: Text(
                     '${FirebaseAuth.instance.currentUser!.uid}',
                     style: TextStyle(
-                      color: Colors.limeAccent,
+                      color: Color(0xffA0D8F1),
                       fontSize: 16,
                     ),
                   ),
@@ -124,7 +124,7 @@ class _ReferralScreenState extends State<ReferralScreen> {
       print("Error counting documents: $error");
     });
     setState(() {
-      prc = i;
+      prc = count;
     });
   }
 int prc=0;

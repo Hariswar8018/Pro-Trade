@@ -30,7 +30,6 @@ class _OnboardingPageState extends State<OnboardingPage> with TickerProviderStat
         pages: pages,
         showBullets: true,
         inactiveBulletColor: Colors.blue,
-        // backgroundProvider: NetworkImage('https://picsum.photos/720/1280'),
         skipCallback: () {
           Navigator.pushReplacement(
               context,
@@ -53,18 +52,21 @@ class _OnboardingPageState extends State<OnboardingPage> with TickerProviderStat
         imageAssetPath: 'assets/IMG_2618-removebg-preview.png',
         title: 'Earn USDT like Crazy',
         body: 'Maximize your digital asset returns with Pro Trade',
-        doAnimateImage: true),
+        doAnimateImage: true
+    ),
     PageModel(
         color: const Color(0xFF0D1015),
-        imageAssetPath: 'assets/IMG_2614.JPG',
+        imageAssetPath: 'assets/invest.webp',
         title: 'Growing Investment',
         body: 'Our Client got stable growth since 4 years',
-        doAnimateImage: true),
+        doAnimateImage: true
+    ),
     PageModel(
         color:  Colors.orange.shade500,
         imageAssetPath: 'assets/IMG_2611-removebg-preview.png',
         title: 'Withdrawl within 24 - 48 Hours',
         body: 'You can start with just 100\$',
-        doAnimateImage: true),
+        doAnimateImage: true
+    ),
   ];
 }

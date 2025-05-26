@@ -184,7 +184,6 @@ class _ProfileState extends State<Profile> {
               });
               if(widget.update){
                 Navigator.pop(context);
-
               }else{
                 Navigator.push(
                     context, PageTransition(
@@ -196,7 +195,7 @@ class _ProfileState extends State<Profile> {
               height:45,width:w-40,
               decoration:BoxDecoration(
                 borderRadius:BorderRadius.circular(7),
-                color:Colors.yellowAccent,
+                color:Color(0xffA0D8F1),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.4), // Shadow color with transparency
@@ -231,7 +230,7 @@ class _ProfileState extends State<Profile> {
       height: 40,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: yes==review?Colors.yellowAccent:Global.blac,
+        color: yes==review?Color(0xffA0D8F1):Global.blac,
       ),
       child: Center(
         child: Row(

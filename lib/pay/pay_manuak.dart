@@ -213,13 +213,13 @@ class _PayManuakState extends State<PayManuak> {
                     width: w - 35,
                     height: 45,
                     decoration: BoxDecoration(
-                        color: Colors.grey.shade800,
+                        color: Color(0xffA0D8F1),
                         borderRadius: BorderRadius.circular(6)
                     ),
                     child:  Center(
                       child: Text(
                         "Manual Pay",
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 13),
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.w800, fontSize: 13),
                       ),
                     )
                 ),
@@ -252,7 +252,7 @@ class _PayManuakState extends State<PayManuak> {
                         width: w-40,
                           height: 50,
                           decoration: BoxDecoration(
-                    color: Color(0xffABC07D),
+                    color: Color(0xffA0D8F1),
                     borderRadius: BorderRadius.circular(10)
                           ),
                           child: Padding(
@@ -271,8 +271,8 @@ class _PayManuakState extends State<PayManuak> {
                   width: w-40,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Color(0xffABC07D),
-                    borderRadius: BorderRadius.circular(10)
+                      color: Global.blac,
+                      borderRadius: BorderRadius.circular(10)
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15,right: 15),
@@ -314,7 +314,7 @@ class _PayManuakState extends State<PayManuak> {
                       width: w/2-15,
                       height: 50,
                       decoration: BoxDecoration(
-                          color: Color(0xffABC07D),
+                          color: Color(0xffA0D8F1),
                           borderRadius: BorderRadius.circular(10)
                       ),
                       child: Padding(
@@ -322,8 +322,8 @@ class _PayManuakState extends State<PayManuak> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.upload),
-                            Text("Upload Screenshot"),
+                            Icon(Icons.upload,color: Colors.black,),
+                            Text("Upload Screenshot",style: TextStyle(color: Colors.black),),
                           ],
                         ),
                       ),
@@ -389,7 +389,7 @@ class _PayManuakState extends State<PayManuak> {
                   width: w-40,
                   height: 50,
                   decoration: BoxDecoration(
-                      color: Color(0xffABC07D),
+                      color: Color(0xffA0D8F1),
                       borderRadius: BorderRadius.circular(10)
                   ),
                   child: Padding(
@@ -397,8 +397,8 @@ class _PayManuakState extends State<PayManuak> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Yes, Complete Payment "),
-                        Icon(Icons.credit_card_outlined),
+                        Text("Yes, Complete Payment ",style: TextStyle(color: Colors.black),),
+                        Icon(Icons.credit_card_outlined,color: Colors.black),
                       ],
                     ),
                   ),
@@ -467,7 +467,7 @@ print(pay.toString());
     },
     child: Container(
       width: 100,
-      color:we==guve? Colors.yellowAccent:Colors.white,
+      color:we==guve? Color(0xffA0D8F1):Colors.white,
       child: Padding(
         padding: const EdgeInsets.only(left: 10,right: 10,top: 7,bottom: 7),
         child: Center(child: Text(" \$ "+guve.toString(),style: TextStyle(color:we==guve?Colors.black: Colors.blue,fontSize: 18),)),

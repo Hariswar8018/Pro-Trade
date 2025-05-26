@@ -187,7 +187,7 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Total Rewards",style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color: Colors.white),),
-                      Text("${widget.user.rewards} USDT",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,color: Colors.white),),
+                      Text("${widget.user.affearn} USDT",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,color: Colors.white),),
                     ],
                   ),
                   Container(
@@ -220,13 +220,13 @@ class _HomeState extends State<Home> {
                       width: w - 35,
                       height: 45,
                       decoration: BoxDecoration(
-                          color: Colors.grey.shade800,
+                          color: Color(0xffA0D8F1),
                           borderRadius: BorderRadius.circular(6)
                       ),
                       child:  Center(
                         child: Text(
                           "Invest More",
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 13),
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w800, fontSize: 13),
                         ),
                       )
                   ),

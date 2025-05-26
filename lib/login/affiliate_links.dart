@@ -51,8 +51,12 @@ class _AffiliateLinksState extends State<AffiliateLinks> {
               fg(name, "Enter Affiliate Code", ""),
               SizedBox(height: 5),
               SizedBox(height: 5),
-              progress?SizedBox():name.text.isEmpty?SizedBox():InkWell(
+              progress?SizedBox():InkWell(
                 onTap: () async {
+                  if(name.text.isEmpty){
+                    Global.showMessage(context, "Please Write Affiliate Code", false);
+                    return ;
+                  }
                   try {
                     CollectionReference usersCollection = FirebaseFirestore
                         .instance
@@ -80,7 +84,7 @@ class _AffiliateLinksState extends State<AffiliateLinks> {
                       width: w - 35,
                       height: 45,
                       decoration: BoxDecoration(
-                          color: Colors.grey.shade800,
+                          color: Color(0xffA0D8F1),
                           borderRadius: BorderRadius.circular(6)
                       ),
                       child:  Center(
@@ -92,7 +96,9 @@ class _AffiliateLinksState extends State<AffiliateLinks> {
                   ),
                 ),
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 9),
+              Center(child: Text("OR",style: TextStyle(color: Colors.grey),)),
+              SizedBox(height: 9),
               progress?Center(child: CircularProgressIndicator(backgroundColor: Colors.grey,)):InkWell(
                onTap: (){
                  Navigator.push(

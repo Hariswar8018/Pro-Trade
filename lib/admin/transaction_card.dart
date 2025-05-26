@@ -395,6 +395,8 @@ class TransactionCard extends StatelessWidget {
                       fontWeight: FontWeight.w800, fontSize: 19),),
               ),
               Text("      Waiting for Admin Verification....."),
+              SizedBox(height: 12,),
+              Text("      Transaction ID : ${user.transactionId}"),
               SizedBox(height: 12,)
             ],
           ),
@@ -421,6 +423,7 @@ class TransactionCard extends StatelessWidget {
       Global.showMessage(context, "$e", false);
     }
   }
+
   void pays(BuildContext context,UserModel userr,bool accept){
     double w=MediaQuery.of(context).size.width;
       showModalBottomSheet(
@@ -531,7 +534,9 @@ class TransactionCard extends StatelessWidget {
         },
       );
   }
+
   TextEditingController controller=TextEditingController();
+
   Future<void> find(BuildContext context,bool accept) async {
     try {
       CollectionReference usersCollection = FirebaseFirestore
@@ -584,6 +589,7 @@ class TransactionCard extends StatelessWidget {
                         context, PageTransition(
                         child: Userdetail(user: userr,), type: PageTransitionType.rightToLeft, duration: Duration(milliseconds: 200)
                     ));
+
                   },
                   child: Container(
                     width: w-40,
@@ -629,6 +635,7 @@ class TransactionCard extends StatelessWidget {
                         "balance": FieldValue.increment(user.rupees),
                         "deposit": FieldValue.increment(user.rupees),
                       });
+                      df(userr.afflink);
                       Navigator.pop(context);
                       Global.showMessage(context, "Done !", false);
                     }catch(e){
@@ -726,6 +733,23 @@ class TransactionCard extends StatelessWidget {
     } catch (e) {
       // Handle parsing errors
       return 'Invalid DateTime format';
+    }
+  }
+
+  Future<void> df(String userids) async {
+    try{
+      print("done------------------------------------------------------------------>");
+      double referamount=0.06*user.rupees ;
+      CollectionReference usersCollection = FirebaseFirestore
+          .instance
+          .collection('users');
+      await usersCollection.doc(userids).update({
+        "affearn":FieldValue.increment(referamount),
+        "balance":FieldValue.increment(referamount),
+      });
+      print("done");
+    }catch(e){
+      print(e);
     }
   }
 }

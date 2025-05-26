@@ -19,11 +19,11 @@ class PurchaseSuccessful extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Spacer(),
-            Center(child: Image.asset("assets/success.png",width: w/2,))
-            ,Text(success?'Transaction Submitted':"Payment Successful",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 20,color: Colors.white),),
+            Center(child: Image.asset("assets/success.png",width: w/2,)),
+            Text(success?'Transaction Submitted':"Payment Successful",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 20,color: Colors.white),),
             Padding(
               padding: const EdgeInsets.only(left: 18.0,right: 18),
-              child:Text("+ ₹${sum.toInt()}",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 35,color: Colors.white),),
+              child:Text("+ \$ ${sum.toInt()}",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 35,color: Colors.white),),
             ),
             Spacer(),
             InkWell(

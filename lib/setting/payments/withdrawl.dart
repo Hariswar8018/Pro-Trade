@@ -55,7 +55,7 @@ class Withdrawl extends ConsumerWidget {
                           width: MediaQuery.of(context).size.width-40,
                           height: 50,
                           decoration: BoxDecoration(
-                              color: Color(0xffABC07D),
+                              color: Color(0xffA0D8F1),
                               borderRadius: BorderRadius.circular(10)
                           ),
                           child: Padding(
@@ -88,7 +88,7 @@ class Withdrawl extends ConsumerWidget {
                               child: Withdrawl2(), type: PageTransitionType.rightToLeft, duration: Duration(milliseconds: 200)
                           ));
                         },
-                        child: Global.button("Continue to Withdraw", MediaQuery.of(context).size.width, Colors.yellowAccent)),
+                        child: Global.button("Continue to Withdraw", MediaQuery.of(context).size.width, Color(0xffA0D8F1))),
                     SizedBox(height: 6,),
                     InkWell(
                         onTap: (){
