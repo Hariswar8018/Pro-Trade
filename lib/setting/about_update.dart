@@ -34,11 +34,8 @@ bool adbout;
             ),
             const SizedBox(height: 10),
             const Text(textAlign: TextAlign.center,
-              "Welcome to Evergreen Wealth, your trusted partner in the world of digital asset staking and investment. "
-                  "At Evergreen Wealth, we empower our users to unlock the potential of their digital assets by offering a secure "
-                  "and efficient platform for staking and earning. With Evergreen Wealth, you can confidently grow your portfolio "
-                  "through innovative staking solutions, transparent operations, and expert-driven strategies, ensuring your assets "
-                  "work harder for you. Join us today and take the first step toward building a future of financial freedom and growth.",
+              '''Welcome to pro trade, your trusted partner in the world of digital assets. with pro trade you can confidently grow your portfolio through innovative trading & investments solutions. transparent operations, and expert-driven strategies, ensuring your assets work harder for you.
+              ''',
               style: TextStyle(color: Colors.white70, fontSize: 16),
             ),
             const SizedBox(height: 30),

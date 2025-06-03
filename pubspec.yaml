@@ -50,6 +50,7 @@ dependencies:
   binance_pay: ^0.0.3
   intl: ^0.20.2
   flutter_datetime_picker_bdaya: ^3.0.2
+  tflite_flutter: ^0.11.0
 
 dev_dependencies:
   flutter_test:
@@ -61,7 +62,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.11.0
   package_rename_plus: ^1.0.1
 
 package_rename_config:
@@ -91,6 +92,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/btc_price_predictor.tflite
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -59,13 +59,16 @@ class _MyHomePageState extends State<MyHomePage> {
     await ref.read(userProvider.notifier).refreshUser();
   }
 
-  bool admin= FirebaseAuth.instance.currentUser!.email=="mohansir.ik70@gmail.com"||FirebaseAuth.instance.currentUser!.email=="ayush@gmail.com";
+  bool admin= FirebaseAuth.instance.currentUser!.email=="mohansir.ik70@gmail.com"||FirebaseAuth.instance.currentUser!.email=="i@g.com";
+
   @override
   Widget build(BuildContext context) {
+    print(FirebaseAuth.instance.currentUser!.email);
     double w=MediaQuery.of(context).size.width;
     return WillPopScope(
         onWillPop: () => _onWillPop(context),
-        child: sd(admin));
+        child: sd(admin)
+    );
   }
 
   Widget sd(bool b){

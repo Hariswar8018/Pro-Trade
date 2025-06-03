@@ -157,26 +157,12 @@ class Withdrawl2 extends ConsumerWidget {
                                 Text("\$ ${we.toStringAsFixed(2)}",style: TextStyle(color: Colors.yellowAccent),),
                               ],
                             ),
-                            Row(
-                              children: [
-                                Text("Total Deduction",style: TextStyle(color: Colors.white),),
-                                Spacer(),
-                                Text("\$ ${(we*3/100).toStringAsFixed(2)}",style: TextStyle(color: Colors.yellowAccent),),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text("Total GST",style: TextStyle(color: Colors.white),),
-                                Spacer(),
-                                Text("\$ ${(we*18/100).toStringAsFixed(2)}",style: TextStyle(color: Colors.yellowAccent),),
-                              ],
-                            ),
                             SizedBox(height: 8,),
                             Row(
                               children: [
                                 Text("Withdrawable",style: TextStyle(color: Colors.white),),
                                 Spacer(),
-                                Text("\$ ${(we - (we*3/100)-(we*18/100)).toStringAsFixed(2)}",style: TextStyle(color: Colors.yellowAccent,fontWeight: FontWeight.w700),),
+                                Text("\$ ${(we - (we*5/100)).toStringAsFixed(2)}",style: TextStyle(color: Colors.yellowAccent,fontWeight: FontWeight.w700),),
                               ],
                             ),
                           ],
@@ -226,7 +212,6 @@ class Withdrawl2 extends ConsumerWidget {
    onTap: (){
        we=guve;
        _controller.text=guve.toString();
-
    },
    child: Container(
      width: 100,

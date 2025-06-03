@@ -13,6 +13,7 @@ import 'package:pro_trade/setting/profile.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'setting/payments/predict.dart';
 import 'setting/payments/withdrawl.dart';
 
 class Global{
@@ -108,7 +109,14 @@ class Global{
                   ));
                 },
                 child: dff(Icon(Icons.history,color: Colors.white,),"Transactions",false)),
-
+            InkWell(
+                onTap: () async {
+                  Navigator.push(
+                      context, PageTransition(
+                      child: Predict(), type: PageTransitionType.rightToLeft, duration: Duration(milliseconds: 200)
+                  ));
+                },
+                child: dff(Icon(Icons.auto_graph_outlined,color: Colors.white,),"Predict",false)),
             InkWell(
                 onTap: () async {
                   Navigator.push(
@@ -135,14 +143,6 @@ class Global{
                 child: dff(Icon(Icons.credit_score,color: Colors.white,),"Withdrawl",false)),
             SizedBox(height: 15,),
             InkWell(
-                onTap: () async {
-                  final Uri _url = Uri.parse('https://evergreenwealth.in/');
-                  if (!await launchUrl(_url)) {
-                    throw Exception('Could not launch $_url');
-                  }
-                },
-                child: dff(Icon(Icons.language,color: Colors.white,),"Website",true)),
-            InkWell(
                 onTap: (){
                   Navigator.push(
                       context, PageTransition(
@@ -160,22 +160,14 @@ class Global{
                 child: dff(Icon(Icons.remove_red_eye,color: Colors.white,),"Our Vision",false)),
             InkWell(
                 onTap: () async {
-                  final Uri _url = Uri.parse('https://evergreenwealth.in/contact-us/');
-                  if (!await launchUrl(_url)) {
-                    throw Exception('Could not launch $_url');
-                  }
-                },
-                child: dff(Icon(Icons.contact_mail,color: Colors.white,),"Contact Us",true)),
+                  final Uri _url = Uri.parse('mailto:protrade.ik70@gmail.com');
 
-            SizedBox(height: 15,),
-            InkWell(
-                onTap: () async {
-                  final Uri _url = Uri.parse('https://sites.google.com/view/starwishterms/privacy_policy');
                   if (!await launchUrl(_url)) {
                     throw Exception('Could not launch $_url');
                   }
                 },
-                child: dff(Icon(Icons.privacy_tip,color: Colors.white,),"Privacy Policy",false)),
+                child: dff(Icon(Icons.email,color: Colors.white,),"Contact Us",true)),
+            SizedBox(height: 15,),
             InkWell(
                 onTap: (){
                   Navigator.push(
@@ -184,20 +176,12 @@ class Global{
                   ));
                 },
                 child: dff(Icon(Icons.share,color: Colors.white,),"Refer & Earn",false)),
-            InkWell(
-                onTap: () async {
-                  final Uri _url = Uri.parse('https://sites.google.com/view/starwishacademy/terms-condition');
-                  if (!await launchUrl(_url)) {
-                    throw Exception('Could not launch $_url');
-                  }
-                },
-                child: dff(Icon(Icons.paste_outlined,color: Colors.white,),"Terms & Condition",false)),
             SizedBox(height: 15,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                circleavataar(FaIcon(FontAwesomeIcons.instagram,color: Colors.white,),'https://www.instagram.com/pro_trade_/?igsh=Z25zanMzOGk4YzNr'),
-                circleavataar(FaIcon(FontAwesomeIcons.facebook,color: Colors.white),'https://www.instagram.com/pro_trade_/?igsh=Z25zanMzOGk4YzNr'),
+                circleavataar(FaIcon(FontAwesomeIcons.instagram,color: Colors.white,),'https://www.instagram.com/pro__trade__/'),
+                circleavataar(FaIcon(FontAwesomeIcons.facebook,color: Colors.white),'https://www.facebook.com/pro.trade.2025'),
                 circleavataar(FaIcon(FontAwesomeIcons.telegram,color: Colors.white),'https://t.me/+z_hO_KTVuoxkNGQ1'),
                 circleavataar(FaIcon(FontAwesomeIcons.x,color: Colors.white),'https://x.com/protradeik70?s=21'),
               ],

@@ -31,9 +31,25 @@ class _AdminNavigationState extends State<AdminNavigation> {
 
   final Fire = FirebaseFirestore.instance;
 
+  int paidcount=0;
+  Future<void> countDocumentsInUsersINR() async {
+    try {
+      final QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection('users').where("balance",isGreaterThanOrEqualTo: 1)
+          .get();
+      final int docCount = querySnapshot.docs.length;
+      print('Number of documents in "Users" collection: $docCount');
+      setState(() {
+        paidcount=docCount;
+      });
+    } catch (e) {
+      print('Error counting documents: $e');
+    }
+  }
   late List<String> images = [];
   void initState(){
     countDocumentsInUsers();
+    countDocumentsInUsersINR();
     countPending();
     counTrans();
     countpay(true);
@@ -177,7 +193,7 @@ int countdraw=0;
                           child: UsersAll(all: false), type: PageTransitionType.rightToLeft, duration: Duration(milliseconds: 100)
                       ));
                     },
-                    child: srr("Paid Users",w,Colors.green.shade300,totaluser)),
+                    child: srr("Paid Users",w,Colors.green.shade300,paidcount)),
               ],
             ),
             SizedBox(height: 6,),
@@ -207,7 +223,7 @@ int countdraw=0;
                           child: UsersAll(all: true), type: PageTransitionType.rightToLeft, duration: Duration(milliseconds: 100)
                       ));
                     },
-                    child: srr("All Users",w,Colors.green.shade300,countdraw)),
+                    child: srr("All Users",w,Colors.green.shade300,totaluser)),
               ],
             ),
             SizedBox(height: 20,),

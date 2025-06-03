@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pro_trade/global.dart';
 
 
 class Forgot extends StatefulWidget {
@@ -42,6 +43,7 @@ class _ForgotState extends State<Forgot> {
                 child: TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(color:Colors.white),
                   decoration: InputDecoration(
                     labelText: 'Your Email',  isDense: true,
                     border: OutlineInputBorder(),
@@ -62,30 +64,34 @@ class _ForgotState extends State<Forgot> {
                 child: InkWell(
                   onTap: () async {
                     if(_emailController.text.isEmpty){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Email Can\'t be left Empty '),
-                        ),
-                      );
+                      Global.showMessage(context, "Email Can\'t be left Empty",false);
                     }else{
                       try{
                         final credential = await FirebaseAuth.instance.sendPasswordResetEmail(email: _emailController.text);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Sent Successful ! Check your Mail'),
-                          ),
-                        );
-                        Navigator.pop(context);
+                         Navigator.pop(context);
+                        Global.showMessage(context, "Sent Successful ! Check your Mail",true);
+
                       }catch(e){
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('${e}'),
-                          ),
-                        );
+                        Global.showMessage(context, "$e",false);
                       }
                     }
                   },
-                  child:Text("")
+                  child:Center(
+                    child: Container(
+                        width: w - 35,
+                        height: 45,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade800,
+                            borderRadius: BorderRadius.circular(6)
+                        ),
+                        child:  Center(
+                          child: Text(
+                            "Send Reset Link",
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 13),
+                          ),
+                        )
+                    ),
+                  ),
                 ),
               ),
             ],

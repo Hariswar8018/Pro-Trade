@@ -186,7 +186,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Total Rewards",style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color: Colors.white),),
+                      Text("Rewards",style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color: Colors.white),),
                       Text("${widget.user.affearn} USDT",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,color: Colors.white),),
                     ],
                   ),
@@ -201,7 +201,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Exp. Rewards",style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color: Colors.white),),
+                      Text("Returns",style: TextStyle(fontSize: 17,fontWeight: FontWeight.w400,color: Colors.white),),
                       Text("${widget.user.expectedRewards} USDT",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,color: Colors.white),),
                     ],
                   ),

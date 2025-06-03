@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:pro_trade/global.dart';
 import 'package:pro_trade/model/usermodel.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ReferralScreen extends StatefulWidget {
   UserModel user;
@@ -37,7 +38,9 @@ class _ReferralScreenState extends State<ReferralScreen> {
             ),
             SizedBox(height: 16),
             Text(
-              'Join the financial evolution! Share your link and earn up to 30% revenue share (6% of your referral\'s payouts). Your referrals also get PARK Points as a bonus — plus additional rewards when they participate in the PARK Token Sale!\n\nFor deposits over \$1M, contact evergreenwealth50@gmail.com for custom terms.',
+             '''Join the financial evolution! share your link and earn up to 6% !
+You can also get best returns on your personal investment 3 to 6% monthly
+            ''',
               style: TextStyle(fontSize: 16, color: Colors.white70),
             ),
             SizedBox(height: 24),
@@ -49,7 +52,7 @@ class _ReferralScreenState extends State<ReferralScreen> {
               children: [
                 Expanded(
                   child: Text(
-                    'https://evergreenwealth.in/${FirebaseAuth.instance.currentUser!.uid}',
+                    'https://protrade.in/${FirebaseAuth.instance.currentUser!.uid}',
                     style: TextStyle(
                       color: Color(0xffA0D8F1),
                       fontSize: 16,
@@ -59,8 +62,8 @@ class _ReferralScreenState extends State<ReferralScreen> {
                 IconButton(
                   icon: Icon(Icons.copy, color: Colors.white),
                   onPressed: () async {
-                    await Clipboard.setData(ClipboardData(text: 'https://evergreenwealth.in/${FirebaseAuth.instance.currentUser!.uid}'));
-                    Global.showMessage(context, "Copied to Clipboard", true);
+                    await Clipboard.setData(ClipboardData(text: 'https://play.google.com/store/apps/details?id=com.starwish.protrade'));
+                    Global.showMessage(context, "App Link Copied", true);
                   },
                 )
               ],
@@ -85,7 +88,7 @@ class _ReferralScreenState extends State<ReferralScreen> {
                   icon: Icon(Icons.copy, color: Colors.white),
                   onPressed: () async {
                     await Clipboard.setData(ClipboardData(text: '${FirebaseAuth.instance.currentUser!.uid}'));
-                    Global.showMessage(context, "Copied to Clipboard", true);
+                    Global.showMessage(context, "Refer Code Copied to Clipboard", true);
                   },
                 )
               ],

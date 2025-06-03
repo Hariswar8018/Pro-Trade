@@ -203,15 +203,7 @@ class Settingss extends ConsumerWidget {
                         child: r(w,"Refer & Earn", Icon(Icons.share,color:isDarkModeEnabled?Colors.black: Colors.white),)),
                     InkWell(
                         onTap: () async {
-                          final Uri _url = Uri.parse('https://evergreenwealth.in/');
-                          if (!await launchUrl(_url)) {
-                            throw Exception('Could not launch $_url');
-                          }
-                        },
-                        child: r(w,"Website", Icon(Icons.language,color: isDarkModeEnabled?Colors.black:Colors.white),)),
-                    InkWell(
-                        onTap: () async {
-                          final Uri _url = Uri.parse('https://evergreenwealth.in/contact-us/');
+                          final Uri _url = Uri.parse('mailto:protrade.ik70@gmail.com');
                           if (!await launchUrl(_url)) {
                             throw Exception('Could not launch $_url');
                           }
