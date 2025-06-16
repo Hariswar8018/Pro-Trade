@@ -113,14 +113,6 @@ class Global{
                 onTap: () async {
                   Navigator.push(
                       context, PageTransition(
-                      child: Predict(), type: PageTransitionType.rightToLeft, duration: Duration(milliseconds: 200)
-                  ));
-                },
-                child: dff(Icon(Icons.auto_graph_outlined,color: Colors.white,),"Predict",false)),
-            InkWell(
-                onTap: () async {
-                  Navigator.push(
-                      context, PageTransition(
                       child: Portfolio(user: user,), type: PageTransitionType.rightToLeft, duration: Duration(milliseconds: 200)
                   ));
                 },
